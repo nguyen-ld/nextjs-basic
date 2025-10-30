@@ -1,8 +1,10 @@
 import Image, { StaticImageData } from "next/image";
 import { Button } from "../ui/button";
 import { ShoppingCart, Star } from "lucide-react";
+import Link from "next/link";
 
 interface Iprops {
+	id: number;
 	images: StaticImageData;
 	name: string;
 	name_category: string;
@@ -12,12 +14,12 @@ interface Iprops {
 
 function ProductItem(props: Iprops) {
 	return (
-		<div>
-			<div className="border border-gray-500/20 rounded-sm md:px-4 px-3 py-2 ">
-				<div className="group cursor-pointer flex items-center justify-center py-2">
+		<Link href={`/products/${props.id}`}>
+			<div className="border border-gray-500/20 rounded-sm md:px-4 px-3 py-2 cursor-pointer hover:shadow-md transition">
+				<div className="group flex items-center justify-center py-2">
 					<Image
 						src={props.images}
-						alt="images_best_sellers"
+						alt={props.name}
 						className="hover:scale-105 transition max-w-26 md:max-w-36"
 					/>
 				</div>
@@ -44,15 +46,13 @@ function ProductItem(props: Iprops) {
 							${props.price}
 						</span>
 					</p>
-					<div>
-						<Button className="bg-[#EDF8F3] text-[#4fbf8b] font-normal  px-2 py-0 md:w-20 w-16 h-8.5 !border-[#4fbf8b] hover:bg-[#EDF8F3] ">
-							<ShoppingCart className="w-3.5 text-[#4fbf8b] " />
-							Add
-						</Button>
-					</div>
+					<Button className="bg-[#EDF8F3] text-[#4fbf8b] font-normal px-2 py-0 md:w-20 w-16 h-8.5 !border-[#4fbf8b] hover:bg-[#EDF8F3] ">
+						<ShoppingCart className="w-3.5 text-[#4fbf8b]" />
+						Add
+					</Button>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }
 

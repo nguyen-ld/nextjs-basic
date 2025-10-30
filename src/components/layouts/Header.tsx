@@ -6,14 +6,15 @@ import { Input } from "../ui/input";
 import logo from "../../assets/images/logo.svg";
 import { Search, ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
+import { ROUTER } from "@/src/setting/contants/route";
 
 function Header() {
 	return (
 		<div className="px-6 py-4 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center border-b-1">
 			<Image src={logo} alt="logo" />
 			<div className="flex items-center gap-8">
-				<Link href="/">Home</Link>
-				<Link href="/products">All Product</Link>
+				<Link href={ROUTER.HOME}>Home</Link>
+				<Link href={ROUTER.PRODUCTS}>All Product</Link>
 				<div className="relative">
 					<Input
 						placeholder="Search products"
@@ -37,7 +38,7 @@ function Header() {
 					</div>
 				</div>
 				<Button className="bg-[#4fbf8b] !rounded-3xl px-6 hover:bg-[#4fbf8b]">
-					Login
+					<Link href={ROUTER.LOGIN}>Login</Link>
 				</Button>
 			</div>
 		</div>

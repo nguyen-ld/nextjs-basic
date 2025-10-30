@@ -9,6 +9,7 @@ function BestSellersSections() {
 				{BEST_SELLERS.map((item) => {
 					return (
 						<ProductItem
+							id={item.id}
 							key={item.id}
 							images={item.images}
 							price={item.price}

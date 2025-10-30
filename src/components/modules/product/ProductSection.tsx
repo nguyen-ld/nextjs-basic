@@ -10,6 +10,7 @@ function ProductSection() {
 						return (
 							<ProductItem
 								key={item.id}
+								id={item.id}
 								name={item.name}
 								name_category={item.category}
 								price={item.price}
